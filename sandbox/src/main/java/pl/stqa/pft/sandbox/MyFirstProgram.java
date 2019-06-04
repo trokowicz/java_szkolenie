@@ -16,18 +16,11 @@ public class MyFirstProgram {
   r.b = 6;
   System.out.println("powierzchnia prostokąta o bokach " + r.a + " i " + r.b + " = " + r.area());
 
-  Point p = new Point(1, 2, 4, 4);
-  p.p1 = 1;
-  p.p2 = 2;
-  p.p3 = 4;
-  p.p4 = 4;
-
-  System.out.println("the length of the stretch between points " + p.p1 + " , " + p.p2 + " and " + p.p3 + " , " + p.p4 + " = " + p.distance());
-
  }
 
  public static void hello(String somebody) {
   System.out.println("Hello, " + somebody +  "!");
  }
+
 
 }
