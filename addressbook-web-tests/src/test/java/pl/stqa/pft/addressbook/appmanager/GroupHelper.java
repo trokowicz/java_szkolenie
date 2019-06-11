@@ -6,6 +6,8 @@ import pl.stqa.pft.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase {
 
+    WebDriver wd;
+
     public GroupHelper(WebDriver wd) {
         super(wd);
     }
@@ -20,8 +22,8 @@ public class GroupHelper extends HelperBase {
 
     public void fillGroupForm(GroupData groupData) {
       type(By.name("group_name"), groupData.getName());
-        type(By.name("group_header"), groupData.getHeader());
-        wd.findElement(By.name("group_footer")).clear();
+      type(By.name("group_header"), groupData.getHeader());
+      wd.findElement(By.name("group_footer")).clear();
       wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
     }
 
