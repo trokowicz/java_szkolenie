@@ -40,7 +40,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectCheckboxContact() {
-        click(By.id("3"));
+        click(By.name("selected[]"));
     }
 
     public void clickEditContact() {
@@ -49,5 +49,13 @@ public class ContactHelper extends HelperBase {
 
     public void submitContactModification() {
         click(By.xpath("(//input[@name='update'])[2]"));
+    }
+
+    public void clickDeleteButton() {
+        click(By.xpath("//input[@value='Delete']"));
+    }
+
+    public void clickOkAlertButton() {
+        wd.switchTo().alert().accept();
     }
 }
