@@ -78,20 +78,5 @@ public class ApplicationManager {
     public ContactHelper getContactHelper() {
         return contactHelper;
     }
-/*
-    public void submitNewContactCreation() {
-        ContactHelper.submitNewContactCreation();
-    }
 
-    public void fillNewContactForm(NewContactData newContactData) {
-        ContactHelper.fillNewContactForm(newContactData);
-    }
-
-    public void initCreatingNewContact() {
-        ContactHelper.initCreatingNewContact();
-    }
-
-    public void addNewContactPage() {
-        ContactHelper.addNewContactPage();
-    }*/
 }

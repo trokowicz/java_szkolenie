@@ -14,7 +14,7 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void gotoContactPage() {
-        click(By.xpath("(//input[@name='submit'])[2]"));
+        click(By.linkText("add new"));
     }
 
 }

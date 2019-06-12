@@ -6,8 +6,6 @@ import pl.stqa.pft.addressbook.model.NewContactData;
 
 public class ContactHelper extends HelperBase {
 
-    WebDriver wd;
-
     public ContactHelper(WebDriver wd) {
         super(wd);
     }
