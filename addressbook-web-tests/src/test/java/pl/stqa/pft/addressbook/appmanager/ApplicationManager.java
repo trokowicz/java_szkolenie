@@ -5,7 +5,6 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import pl.stqa.pft.addressbook.model.NewContactData;
 
 import java.util.concurrent.TimeUnit;
 
