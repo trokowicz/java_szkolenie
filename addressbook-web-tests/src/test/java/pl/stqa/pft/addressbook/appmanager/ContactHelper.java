@@ -38,4 +38,16 @@ public class ContactHelper extends HelperBase {
     public void submitNewContactCreation() {
         click(By.xpath("(//input[@name='submit'])[2]"));
     }
+
+    public void selectCheckboxContact() {
+        click(By.id("3"));
+    }
+
+    public void clickEditContact() {
+        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='New'])[1]/following::img[2]"));
+    }
+
+    public void submitContactModification() {
+        click(By.xpath("(//input[@name='update'])[2]"));
+    }
 }
