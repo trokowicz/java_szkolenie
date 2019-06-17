@@ -22,7 +22,7 @@ public class GroupHelper extends HelperBase {
       type(By.name("group_name"), groupData.getName());
       type(By.name("group_header"), groupData.getHeader());
       wd.findElement(By.name("group_footer")).clear();
-      wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
+      type(By.name("group_footer"), groupData.getFooter());
     }
 
     public void initGroupCreation() {
