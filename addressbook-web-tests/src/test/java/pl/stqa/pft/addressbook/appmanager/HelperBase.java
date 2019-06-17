@@ -11,6 +11,17 @@ public class HelperBase {
     public HelperBase(WebDriver wd) {
         this.wd = wd;
     }
+/*
+    protected boolean isElementPresent(By locator) {
+        try {
+            wd.findElement(locator);
+            return true;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
+ */
 
     protected void click(By locator) {
         wd.findElement(locator).click();
@@ -27,7 +38,7 @@ public class HelperBase {
         }
     }
 
-    private boolean isElementPresent(By by) {
+    public boolean isElementPresent(By by) {
         try {
             wd.findElement(by);
             return true;

@@ -10,7 +10,8 @@ public class ContactCreationTests extends TestBase {
     app.getNavigationHelper().gotoContactPage();
     app.getContactHelper().addNewContactPage();
     app.getContactHelper().initCreatingNewContact();
-    app.getContactHelper().fillNewContactForm(new ContactData("Null_test", "Test", null, "test.new@test73737.pl"));
+    app.getContactHelper().fillNewContactForm(new ContactData
+            ("Null_test", "Test", null, "test.new@test73737.pl", "test1"), true);
     app.getContactHelper().submitNewContactCreation();
     app.returnToHomePage();
     app.logout();
