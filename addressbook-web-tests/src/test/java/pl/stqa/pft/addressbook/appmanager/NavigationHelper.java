@@ -18,12 +18,20 @@ public class NavigationHelper extends HelperBase {
             click(By.linkText("groups"));
         }
 
-
+/*
     public void gotoContactPage() {
         if (isElementPresent(By.id("maintable"))){
             return;
         }
         click(By.linkText("add new"));
+    }*/
+
+    public void gotoContactPage() {
+        if (isElementPresent(By.name("submit"))
+                && wd.findElement(By.name("submit")).getText().equals("Edit / add address book entry")) {
+            return;
     }
+    click(By.linkText("add new"));
+}
 
 }
