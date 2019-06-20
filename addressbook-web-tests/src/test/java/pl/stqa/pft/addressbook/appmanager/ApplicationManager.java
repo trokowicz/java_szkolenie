@@ -33,8 +33,9 @@ public class ApplicationManager {
         } else if (browser.equals(BrowserType.IE)) {
             wd = new InternetExplorerDriver();
         }
-        wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        wd.get("http://localhost:8080/addressbook/?fbclid=IwAR1Lt1dpkZfgyMaCqcsZkhPN_HjRNGAsFjAyhkMD9Rp-Gi4EaKkzLrPGKw4");
+        wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+       // wd.get("http://localhost:8080/addressbook/?fbclid=IwAR1Lt1dpkZfgyMaCqcsZkhPN_HjRNGAsFjAyhkMD9Rp-Gi4EaKkzLrPGKw4");
+        wd.get("http://localhost:8080/addressbook");
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
