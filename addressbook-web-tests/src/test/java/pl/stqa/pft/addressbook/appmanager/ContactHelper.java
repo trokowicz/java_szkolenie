@@ -43,8 +43,9 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("(//input[@name='submit'])[2]"));
     }
 
-    public void selectCheckboxContact() {
-        click(By.name("selected[]"));
+    public void selectCheckboxContact(int index) {
+      //  click(By.name("selected[]"));
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void clickEditContact() {
@@ -72,5 +73,9 @@ public class ContactHelper extends HelperBase {
 
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public int getContactCount() {
+        return wd.findElements(By.name("selected[]")).size();
     }
 }
