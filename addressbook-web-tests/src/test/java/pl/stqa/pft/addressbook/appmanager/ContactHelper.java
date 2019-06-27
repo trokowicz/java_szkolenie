@@ -63,6 +63,11 @@ public class ContactHelper extends HelperBase {
     public void clickOkAlertButton() {
         wd.switchTo().alert().accept();
     }
+/*
+    public void clickOkAlertButton() {
+        wd.switchTo().alert().accept();
+        wd.findElement(By.cssSelector("div.msgbox"));
+    }*/
 
     public void createContact(ContactData contact) {
         addNewContactPage();
