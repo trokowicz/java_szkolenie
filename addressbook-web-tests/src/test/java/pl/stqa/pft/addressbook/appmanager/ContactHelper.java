@@ -18,11 +18,11 @@ public class ContactHelper extends HelperBase {
     }
 
     public void fillNewContactForm(ContactData contactData) {
-      type(By.name("firstname"), contactData.getFirstName());
-      type(By.name("lastname"), contactData.getLastName());
-      type(By.name("title"), contactData.getTitle());
-      click(By.name("email"));
-      type(By.name("email"), contactData.getEmail());
+        type(By.name("firstname"), contactData.getFirstName());
+        type(By.name("lastname"), contactData.getLastName());
+        type(By.name("title"), contactData.getTitle());
+        click(By.name("email"));
+        type(By.name("email"), contactData.getEmail());
 /*
       if (creation) {
           new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -48,7 +48,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectCheckboxContact(int index) {
-      //  click(By.name("selected[]"));
+        //  click(By.name("selected[]"));
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
