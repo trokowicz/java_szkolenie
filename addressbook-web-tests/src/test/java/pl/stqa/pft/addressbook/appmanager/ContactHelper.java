@@ -46,7 +46,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("(//input[@name='submit'])[2]"));
     }
 
-    public void selectCheckboxContact(int index) {
+    public void selectContact(int index) {
         //  click(By.name("selected[]"));
         wd.findElements(By.name("selected[]")).get(index).click();
     }
@@ -65,12 +65,8 @@ public class ContactHelper extends HelperBase {
 
     public void clickOkAlertButton() {
         wd.switchTo().alert().accept();
-    }
-/*
-    public void clickOkAlertButton() {
-        wd.switchTo().alert().accept();
         wd.findElement(By.cssSelector("div.msgbox"));
-    }*/
+    }
 
     public void createContact(ContactData contact, boolean creation) {
         addNewContactPage();
@@ -88,11 +84,18 @@ public class ContactHelper extends HelperBase {
     }
 
     public void modify(int index, ContactData contact) {
-        selectCheckboxContact(index);
+        selectContact(index);
         clickEditContact(index);
         fillNewContactForm(contact, false);
         submitContactModification();
 
+    }
+
+    public void delete(int index) {
+        selectContact(index);
+        clickEditContact(index);
+        clickDeleteButton();
+        //clickOkAlertButton();
     }
 
     public List<ContactData> getContactList() {
