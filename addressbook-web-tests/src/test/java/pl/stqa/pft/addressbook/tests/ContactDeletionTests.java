@@ -5,16 +5,15 @@ import org.testng.annotations.Test;
 import pl.stqa.pft.addressbook.model.ContactData;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class ContactDeletionTests extends TestBase {
 
     @Test
     public void testContactDeletion() {
-        app.getNavigationHelper().gotoContactPage();
+        app.getNavigationHelper().gotoHomePage();
         if (! app.getContactHelper().isThereAContact()) {
             app.getContactHelper().createContact(new ContactData
-                    ("Test", "Test", null, "test.new@test73737.pl", "test1"));
+                    ("Test", "Test", null, "test.new@test73737.pl", "test1"),true);
         }
         app.returnToHomePage();
         List<ContactData> before = app.getContactHelper().getContactList();

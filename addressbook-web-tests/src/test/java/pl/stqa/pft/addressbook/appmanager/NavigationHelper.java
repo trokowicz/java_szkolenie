@@ -18,13 +18,13 @@ public class NavigationHelper extends HelperBase {
             click(By.linkText("groups"));
         }
 
-/*
-    public void gotoContactPage() {
-        if (isElementPresent(By.id("maintable"))){
+    public void gotoHomePage() {
+        if (isElementPresent(By.id("maintable"))) {
             return;
         }
-        click(By.linkText("add new"));
-    }*/
+
+        click(By.linkText("home"));
+    }
 
     public void gotoContactPage() {
         if (isElementPresent(By.name("submit"))
