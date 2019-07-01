@@ -51,7 +51,7 @@ public class ContactHelper extends HelperBase {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
-    public void clickEditContact() {
+    public void clickEditContact(int index) {
         click(By.xpath("//img[@alt='Edit']"));
     }
 
@@ -85,6 +85,14 @@ public class ContactHelper extends HelperBase {
 
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public void modify(int index, ContactData contact) {
+        selectCheckboxContact(index);
+        clickEditContact(index);
+        fillNewContactForm(contact, false);
+        submitContactModification();
+
     }
 
     public List<ContactData> getContactList() {

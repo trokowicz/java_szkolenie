@@ -12,27 +12,29 @@ public class ContactModificationTests extends TestBase {
 
     @Test
     public void testContactModification() {
-        app.getNavigationHelper().gotoContactPage();
+        app.getNavigationHelper().gotoHomePage();
+
         if (! app.getContactHelper().isThereAContact()) {
             app.getContactHelper().createContact(new ContactData
                     ("Test", "Test", null, "test.new@test73737.pl", "test1"),true);
         }
-        app.returnToHomePage();
+        app.getNavigationHelper().gotoHomePage();
+
         List<ContactData> before = app.getContactHelper().getContactList();
-        app.getContactHelper().selectCheckboxContact(before.size() - 1);
-        app.getContactHelper().clickEditContact();
+
+        int index = before.size()-1;
+
         ContactData contact = new ContactData(before.get(before.size() - 1).getId(), "Modification", "Exercise", "Mr", "test.new@test7.pl", null);
-        app.getContactHelper().fillNewContactForm(contact, true);
-        app.getContactHelper().submitContactModification();
-        app.returnToHomePage();
+
+        app.getContactHelper().modify(index, contact);
+        app.getNavigationHelper().gotoHomePage();
+
         List<ContactData> after = app.getContactHelper().getContactList();
         Assert.assertEquals(after.size(), before.size());
 
         before.remove(before.size() - 1);
         before.add(contact);
-        Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
-        before.sort(byId);
-        after.sort(byId);
-        Assert.assertEquals(before, after);
+
+        Assert.assertEquals(new HashSet<Object>(after), new HashSet<Object>(before));
     }
 }
