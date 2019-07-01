@@ -19,8 +19,10 @@ public class ContactCreationTests extends TestBase {
     ContactData contact = new ContactData("Test", "Test", null, "test.new@test73737.pl", "test1");
     app.getContactHelper().createContact(contact, true);
 
+    app.getNavigationHelper().gotoHomePage();
+
     List<ContactData> after = app.getContactHelper().getContactList();
-    Assert.assertEquals(after.size(), before.size() + 1);
+    Assert.assertEquals(after.size(), before.size() +1);
 
     contact.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(),o2.getId())).get().getId());
     before.add(contact);
