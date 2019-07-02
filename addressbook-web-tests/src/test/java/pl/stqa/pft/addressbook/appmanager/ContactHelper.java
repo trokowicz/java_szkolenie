@@ -30,10 +30,6 @@ public class ContactHelper extends HelperBase {
       }
     }
 
-    public void initCreatingNewContact() {
-        click(By.name("firstname"));
-    }
-
     public void click(By locator) {
         wd.findElement(locator).click();
     }
@@ -47,7 +43,6 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectContact(int index) {
-        //  click(By.name("selected[]"));
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
@@ -70,17 +65,12 @@ public class ContactHelper extends HelperBase {
 
     public void createContact(ContactData contact, boolean creation) {
         addNewContactPage();
-       // initCreatingNewContact();
         fillNewContactForm(contact, creation);
         submitNewContactCreation();
     }
 
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
-    }
-
-    public int getContactCount() {
-        return wd.findElements(By.name("selected[]")).size();
     }
 
     public void modify(int index, ContactData contact) {
