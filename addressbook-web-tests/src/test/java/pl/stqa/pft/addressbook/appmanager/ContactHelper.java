@@ -63,7 +63,7 @@ public class ContactHelper extends HelperBase {
         wd.findElement(By.cssSelector("div.msgbox"));
     }
 
-    public void createContact(ContactData contact, boolean creation) {
+    public void create(ContactData contact, boolean creation) {
         addNewContactPage();
         fillNewContactForm(contact, creation);
         submitNewContactCreation();
@@ -88,7 +88,7 @@ public class ContactHelper extends HelperBase {
         //clickOkAlertButton();
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<ContactData>();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
