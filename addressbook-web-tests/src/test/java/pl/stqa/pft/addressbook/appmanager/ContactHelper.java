@@ -105,15 +105,16 @@ public class ContactHelper extends HelperBase {
     }
 
     public Set<ContactData> all() {
-        Set<ContactData> contacts = new HashSet<>();
+        Set<ContactData> contacts = new HashSet<ContactData>();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
 
             List<WebElement> cells =  element.findElements(By.tagName("td"));
             String lastname = cells.get(1).getText();
             String firstname = cells.get(2).getText();
+            Integer id= Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
 
-            contacts.add(new ContactData().withFirstName(firstname).withLastName(lastname));
+            contacts.add(new ContactData().withId(id).withFirstName(firstname).withLastName(lastname));
         }
         return contacts;
     }
