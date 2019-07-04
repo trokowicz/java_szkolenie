@@ -48,8 +48,12 @@ public class ContactHelper extends HelperBase {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
-    public void clickEditContact(int index) {
-        wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+    public void selectContactById(int id) {
+        wd.findElement(By.xpath("//input[@value='" + id + "']")).click();
+    }
+
+    public void clickEditContact(int id) {
+        wd.findElement(By.cssSelector("[href='edit.php?id=" + id + "']")).click();
     }
 
     public void submitContactModification() {
@@ -60,34 +64,23 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
     }
 
-    public void clickOkAlertButton() {
-        wd.switchTo().alert().accept();
-        wd.findElement(By.cssSelector("div.msgbox"));
-    }
-
     public void create(ContactData contact, boolean creation) {
         addNewContactPage();
         fillNewContactForm(contact, creation);
         submitNewContactCreation();
     }
 
-    public boolean isThereAContact() {
-        return isElementPresent(By.name("selected[]"));
-    }
-
-    public void modify(int index, ContactData contact) {
-        selectContact(index);
-        clickEditContact(index);
+    public void modify(ContactData contact) {
+        selectContactById(contact.getId());
+        clickEditContact(contact.getId());
         fillNewContactForm(contact, false);
         submitContactModification();
-
     }
 
-    public void delete(int index) {
-        selectContact(index);
-        clickEditContact(index);
+    public void delete(ContactData contact) {
+        selectContactById(contact.getId());
+        clickEditContact(contact.getId());
         clickDeleteButton();
-        //clickOkAlertButton();
     }
 
     public List<ContactData> list() {
