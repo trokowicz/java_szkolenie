@@ -66,6 +66,10 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
     }
 
+    public int count() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
+
     public void create(ContactData contact, boolean creation) {
         addNewContactPage();
         fillNewContactForm(contact, creation);
