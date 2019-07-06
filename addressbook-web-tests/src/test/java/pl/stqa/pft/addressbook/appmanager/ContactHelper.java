@@ -92,6 +92,22 @@ public class ContactHelper extends HelperBase {
         contactCache = null;
     }
 
+    public ContactData infoFromEditForm(ContactData contact) {
+        initContactModificationById(contact.getId());
+        String firstName = wd.findElement(By.name("firstname")).getAttribute("value");
+        String lastName = wd.findElement(By.name("lastname")).getAttribute("value");
+        String homeTel = wd.findElement(By.name("home")).getAttribute("value");
+        String mobileTel = wd.findElement(By.name("mobile")).getAttribute("value");
+        String workTel = wd.findElement(By.name("work")).getAttribute("value");
+        wd.navigate().back();
+        return contact = new ContactData().withFirstName(firstName).withLastName(lastName)
+                .withHomeTel(homeTel).withMobileTel(mobileTel).withWorkTel(workTel);
+    }
+
+    private void initContactModificationById(int id) {
+        wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']",id))).click();
+    }
+
     public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<ContactData>();
         List<WebElement> elements = wd.findElements(By.name("entry"));
@@ -125,5 +141,24 @@ public class ContactHelper extends HelperBase {
             contactCache.add(new ContactData().withId(id).withFirstName(firstname).withLastName(lastname));
         }
         return new Contacts(contactCache);
+    }
+
+    public Set<ContactData> all2()
+    {
+        Set<ContactData> contacts = new HashSet<ContactData>();
+        List<WebElement> rows = wd.findElements(By.name("entry"));
+        for (WebElement row : rows)
+        {
+            List<WebElement> cells = row.findElements(By.tagName("td"));
+            int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value")) ;
+            String lastname = cells.get(1).getText();
+            String firstname = cells.get(2).getText();
+            String[] phones = cells.get(5).getText().split("\n");
+
+            contacts.add(new ContactData().withId(id).withFirstName(firstname).withLastName(lastname)
+                    .withHomeTel(phones[0]).withMobileTel(phones[1]).withWorkTel(phones[2]));
+
+        }
+        return contacts;
     }
 }

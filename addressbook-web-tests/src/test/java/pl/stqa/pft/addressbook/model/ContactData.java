@@ -9,6 +9,10 @@ public class ContactData {
     private String title;
     private String email;
     private String group;
+    private String homeTel;
+    private String mobileTel;
+    private String workTel;
+    private String allPhones;
 
     public ContactData withId(int id) {
         this.id = id;
@@ -32,6 +36,42 @@ public class ContactData {
 
     public ContactData withEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public ContactData withHomeTel(String homeTel) {
+        this.homeTel = homeTel;
+        return this;
+    }
+
+    public ContactData withMobileTel(String mobileTel) {
+        this.mobileTel = mobileTel;
+        return this;
+    }
+
+    public ContactData withWorkTel(String workTel) {
+        this.workTel = workTel;
+        return this;
+    }
+
+    public String getHomeTel() {
+        return homeTel;
+    }
+
+    public String getMobileTel() {
+        return mobileTel;
+    }
+
+    public String getWorkTel() {
+        return workTel;
+    }
+
+    public String getAllPhones() {
+        return allPhones;
+    }
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
         return this;
     }
 
