@@ -20,8 +20,6 @@ public class ContactData {
     private String address2;
     private String allAdresses;
 
-
-
     public ContactData withId(int id) {
         this.id = id;
         return this;
@@ -189,5 +187,4 @@ public class ContactData {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
-
 }

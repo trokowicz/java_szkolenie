@@ -12,7 +12,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactMailTests extends TestBase {
 
-
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().homePage();
