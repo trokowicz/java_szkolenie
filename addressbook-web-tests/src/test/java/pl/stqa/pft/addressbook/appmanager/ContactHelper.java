@@ -153,11 +153,10 @@ public class ContactHelper extends HelperBase {
             int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value")) ;
             String lastname = cells.get(1).getText();
             String firstname = cells.get(2).getText();
-            String[] phones = cells.get(5).getText().split("\n");
+            String allPhones = cells.get(5).getText();
 
             contacts.add(new ContactData().withId(id).withFirstName(firstname).withLastName(lastname)
-                    .withHomeTel(phones[0]).withMobileTel(phones[1]).withWorkTel(phones[2]));
-
+                    .withAllPhones(allPhones));
         }
         return contacts;
     }
