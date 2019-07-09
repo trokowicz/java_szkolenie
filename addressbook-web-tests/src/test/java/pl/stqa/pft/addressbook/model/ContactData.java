@@ -19,6 +19,7 @@ public class ContactData {
     private String address;
     private String address2;
     private String allAdresses;
+    private String allDetails;
 
     public ContactData withId(int id) {
         this.id = id;
@@ -101,6 +102,15 @@ public class ContactData {
 
     public ContactData withAllPhones(String allPhones) {
         this.allPhones = allPhones;
+        return this;
+    }
+
+    public String getAllDetails() {
+        return allDetails;
+    }
+
+    public ContactData withAllDetails(String allDetails) {
+        this.allDetails = allDetails;
         return this;
     }
 
