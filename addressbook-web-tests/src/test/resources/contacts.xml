@@ -1,20 +1,20 @@
-<list>
-  <contact>
-    <firstName>Firstname0</firstName>
-    <lastName>Lastname0</lastName>
-    <group>test0</group>
-    <email>email@email.eu0</email>
-  </contact>
-  <contact>
-    <firstName>Firstname1</firstName>
-    <lastName>Lastname1</lastName>
-    <group>test1</group>
-    <email>email@email.eu1</email>
-  </contact>
-  <contact>
-    <firstName>Firstname2</firstName>
-    <lastName>Lastname2</lastName>
-    <group>test2</group>
-    <email>email@email.eu2</email>
-  </contact>
-</list>
+[
+  {
+    "firstName": "Firstname0",
+    "lastName": "Lastname0",
+    "group": "test0",
+    "email": "email@email.eu0"
+  },
+  {
+    "firstName": "Firstname1",
+    "lastName": "Lastname1",
+    "group": "test1",
+    "email": "email@email.eu1"
+  },
+  {
+    "firstName": "Firstname2",
+    "lastName": "Lastname2",
+    "group": "test2",
+    "email": "email@email.eu2"
+  }
+]
