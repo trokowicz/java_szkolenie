@@ -39,11 +39,22 @@ public class ContactDataGenerator {
     generator.run();
   }
 
-  private void run() throws IOException {
+  /*private void run() throws IOException {
     List<ContactData> contacts = generateContacts(count);
     if (format.equals("csv")) {
       saveAsCsv(contacts, new File(file));
     } else if (format.equals("xml")) {
+      saveAsXml(contacts, new File(file));
+    } else if (format.equals("json")) {
+      saveAsJson(contacts, new File(file));
+    } else {
+      System.out.println("Unrecognized format" + format);
+    }
+  }*/
+
+  private void run() throws IOException {
+    List<ContactData> contacts = generateContacts(count);
+    if (format.equals("xml")) {
       saveAsXml(contacts, new File(file));
     } else if (format.equals("json")) {
       saveAsJson(contacts, new File(file));
@@ -69,7 +80,7 @@ public class ContactDataGenerator {
       writer.write(xml);
     }
   }
-
+/*
   private void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
     System.out.println(new File(".").getAbsolutePath());
     try (Writer writer = new FileWriter(file)) {
@@ -77,7 +88,7 @@ public class ContactDataGenerator {
         writer.write(String.format("%s;%s;%s\n", contact.getLastName(), contact.getFirstName(), contact.getEmail(), contact.getGroup()));
       }
     }
-  }
+  }*/
 
 
   private List<ContactData> generateContacts(int count) {
@@ -87,7 +98,8 @@ public class ContactDataGenerator {
               .withLastName(String.format("Lastname%s", i))
               .withFirstName(String.format("Firstname%s", i))
               .withEmail(String.format("email@email.eu%s", i))
-              .withGroup(String.format("test%s", i)));
+             // .withGroup(String.format("test%s", i)));
+      );
     }
     return contacts;
   }
