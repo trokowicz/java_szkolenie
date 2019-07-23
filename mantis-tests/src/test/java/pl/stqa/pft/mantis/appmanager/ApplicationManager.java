@@ -42,30 +42,16 @@ public class ApplicationManager {
         wd.get(properties.getProperty("web.baseUrl"));
     }
 
-    public void logout() {
-      wd.findElement(By.linkText("Logout")).click();
-    }
-
-    public void stop() {
+    public void stop()
+    {
         wd.quit();
     }
 
-
-    private boolean isElementPresent(By by) {
-      try {
-        wd.findElement(by);
-        return true;
-      } catch (NoSuchElementException e) {
-        return false;
-      }
+    public HttpSession newSession() {
+    return  new HttpSession(this);
     }
 
-    private boolean isAlertPresent() {
-      try {
-        wd.switchTo().alert();
-        return true;
-      } catch (NoAlertPresentException e) {
-        return false;
-      }
-    }
+  public String getProperty(String key) {
+    return properties.getProperty(key);
+  }
 }
