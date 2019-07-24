@@ -91,6 +91,16 @@ public class ContactHelper extends HelperBase {
         contactCache = null;
     }
 
+    public String dataFromDetailsForm(ContactData contactData){
+        detailsViewById(contactData.getId());
+        return wd.findElement(By.id("content")).getText();
+
+    }
+
+    private void detailsViewById(int id) {
+        wd.findElement(By.cssSelector("[href='view.php?id=" + id + "']")).click();
+    }
+
     public ContactData infoFromEditForm(ContactData contact) {
         initContactModificationById(contact.getId());
         String firstName = wd.findElement(By.name("firstname")).getAttribute("value");
