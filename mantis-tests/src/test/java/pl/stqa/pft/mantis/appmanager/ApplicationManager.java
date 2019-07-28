@@ -1,8 +1,5 @@
 package pl.stqa.pft.mantis.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,11 +16,12 @@ public class ApplicationManager {
 
   private final Properties properties;
   private WebDriver wd;
-
   private String browser;
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
+  private UiHelper uiHelper;
+  private DbHelper dbHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -35,8 +33,7 @@ public class ApplicationManager {
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
   }
 
-  public void stop()
-  {
+  public void stop() {
     if (wd != null) {
       wd.quit();
     }
@@ -52,7 +49,7 @@ public class ApplicationManager {
 
   public RegistrationHelper registration() {
     if (registrationHelper == null) {
-      registrationHelper =  new RegistrationHelper(this);
+      registrationHelper = new RegistrationHelper(this);
     }
     return registrationHelper;
   }
@@ -85,4 +82,20 @@ public class ApplicationManager {
     }
     return mailHelper;
   }
+
+  public UiHelper ui() {
+    if (uiHelper == null) {
+      uiHelper = new UiHelper(this);
+    }
+    return uiHelper;
+  }
+
+  public DbHelper db() {
+
+    if (dbHelper == null) {
+      dbHelper = new DbHelper();
+    }
+    return dbHelper;
+  }
+
 }
